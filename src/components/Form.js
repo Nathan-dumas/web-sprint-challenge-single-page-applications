@@ -42,6 +42,7 @@ export default function Form(props) {
           type="checkbox"
           value={values.pepperoni}
           onChange={onChange}
+          checked={values.pepperoni}
         />
         Sausage:
         <input
@@ -49,6 +50,7 @@ export default function Form(props) {
           type="checkbox"
           value={values.sausage}
           onChange={onChange}
+          checked={values.sausage}
         />
         Mushrooms:
         <input
@@ -56,6 +58,7 @@ export default function Form(props) {
           type="checkbox"
           value={values.mushrooms}
           onChange={onChange}
+          checked={values.mushrooms}
         />
         Pineapple:
         <input
@@ -63,6 +66,7 @@ export default function Form(props) {
           type="checkbox"
           value={values.pineapple}
           onChange={onChange}
+          checked={values.pineapple}
         />
       </label>
       <label htmlFor="instructions">

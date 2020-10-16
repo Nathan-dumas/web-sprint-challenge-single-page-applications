@@ -65,9 +65,11 @@ const App = () => {
     const newOrder = {
       name: formValues.name.trim(),
       instructions: formValues.instructions.trim(),
-      toppings: ["pepperoni ", "sausage ", "mushrooms ", "pineapple "].filter(
-        (toppings) => formValues[toppings]
-      ),
+      pepperoni: formValues.pepperoni,
+      sausage: formValues.sausage,
+      mushrooms: formValues.mushrooms,
+      pineapple: formValues.pineapple,
+      size: formValues.size,
     };
     orderPizza(newOrder);
     setFormValues(initialValues);
@@ -94,7 +96,7 @@ const App = () => {
           errors={formErrors}
         />
         {data.map((order) => (
-          <Confirmation details={order}/>
+          <Confirmation details={order} key={order.id}/>
         ))}
       </Route>
     </>

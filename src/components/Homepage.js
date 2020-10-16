@@ -7,17 +7,7 @@ const Header = styled.header`
     display: flex;
 
 `
-const Nav = styled.nav`
-    display: flex;
-    border: 1px solid black;
-    width: 100%;
-    justify-content: center;
-`
-const A = styled.a `
-    display: flex;
-    text-decoration: none;
-    margin: 1%;
-`
+
 
 export default function Homepage(props) {
     return (

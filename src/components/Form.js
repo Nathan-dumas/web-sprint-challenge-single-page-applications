@@ -13,8 +13,10 @@ export default function Form(props) {
     const valueToUse = type === "checkbox" ? checked : value;
     change(name, valueToUse);
   };
+
   return (
     <form onSubmit={onSubmit}>
+      <div>{errors.name}</div>
       <label htmlFor="name">
         Name:
         <input
@@ -39,42 +41,44 @@ export default function Form(props) {
         <input
           name="pepperoni"
           type="checkbox"
-          checked={values.pepperoni}
-          onchange={onChange}
+          value={values.pepperoni}
+          onChange={onChange}
         />
         Sausage
         <input
           name="sausage"
           type="checkbox"
           value={values.sausage}
-          onchange={onChange}
+          onChange={onChange}
         />
         Mushrooms
         <input
           name="mushrooms"
           type="checkbox"
           value={values.mushrooms}
-          onchange={onChange}
+          onChange={onChange}
         />
         Pineapple
         <input
           name="pineapple"
           type="checkbox"
           value={values.pineapple}
-          onchange={onChange}
+          onChange={onChange}
         />
       </label>
-      <label>
+      <label htmlFor="instructions">
         Special Instructions:
         <input
-          type="text"
           name="instructions"
-          placeholder="Instructions"
           value={values.instructions}
-          onchange={onChange}
+          onChange={onChange}
+          type="text"
+          placeholder="instructions"
         />
       </label>
-      <button>Add to order</button>
+      <button type="submit" disabled={disabled}>
+        Add to order
+      </button>
     </form>
   );
 }

@@ -22,10 +22,7 @@ const A = styled.a `
 export default function Homepage(props) {
     return (
         <Header>
-            <Nav>
-                <A href='#'>Home</A>
-                <A href='#'>Order</A>
-            </Nav>
+            <h1>This is the home page</h1>
         </Header>
     )
 }

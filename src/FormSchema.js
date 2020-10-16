@@ -8,4 +8,6 @@ export default yup.object().shape({
     sausage: yup.boolean().oneOf([true, false], ''),
     mushrooms: yup.boolean().oneOf([true, false], ''),
     pineapple: yup.boolean().oneOf([true, false], ''),
+
+    size: yup.string().oneOf(['small', 'medium', 'large'])
 })

@@ -29,11 +29,10 @@ export default function Form(props) {
       </label>
       <label htmlFor="size">
         Size:
-        <select name="size">
-          <option>Small</option>
-          <option>Medium</option>
-          <option>Large</option>
-          <option>Extra Large</option>
+        <select name="size" onChange={onChange} value={values.size}>
+          <option value='small'>Small</option>
+          <option value='medium'>Medium</option>
+          <option value='large'>Large</option>
         </select>
       </label>
       <label>

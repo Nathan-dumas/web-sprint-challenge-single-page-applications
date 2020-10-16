@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Homepage from "./components/Homepage";
+import { Link, Route } from "react-router-dom";
 import Form from "./components/Form";
 import axios from "axios";
 import * as yup from "yup";
 import schema from "./FormSchema";
+import Confirmation from "./components/Confirmation";
 
 const initialValues = {
   name: "",
@@ -31,10 +33,10 @@ const App = () => {
   const orderPizza = (newOrder) => {
     axios
       .post("https://reqres.in/api/users", newOrder)
-      .then(res => {
-        setData([...data, res.data])
+      .then((res) => {
+        setData([...data, res.data]);
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err));
   };
 
   const inputChange = (name, value) => {
@@ -70,22 +72,31 @@ const App = () => {
     orderPizza(newOrder);
     setFormValues(initialValues);
   };
-  console.log(data)
-  
+  console.log(data);
+
   useEffect(() => {
-    schema.isValid(formValues).then(valid => setDisabled(!valid))
-  }, [formValues])
+    schema.isValid(formValues).then((valid) => setDisabled(!valid));
+  }, [formValues]);
 
   return (
     <>
-      <Homepage />
-      <Form
-        values={formValues}
-        submit={submitForm}
-        change={inputChange}
-        disabled={disabled}
-        errors={formErrors}
-      />
+      <Route exact path="/">
+        <Homepage />
+        <Link to="/pizza">Order</Link>
+      </Route>
+      <Route exact path="/pizza">
+        <Link to="/">Home</Link>
+        <Form
+          values={formValues}
+          submit={submitForm}
+          change={inputChange}
+          disabled={disabled}
+          errors={formErrors}
+        />
+        {data.map((order) => (
+          <Confirmation name={order.name} pepperoni={order.pepperoni}/>
+        ))}
+      </Route>
     </>
   );
 };

@@ -30,34 +30,34 @@ export default function Form(props) {
       <label htmlFor="size">
         Size:
         <select name="size" onChange={onChange} value={values.size}>
+          <option>-- Size --</option>
           <option value='small'>Small</option>
           <option value='medium'>Medium</option>
           <option value='large'>Large</option>
         </select>
       </label>
-      <label>
-        Toppings: Pepperoni
+      <label>Pepperoni:
         <input
           name="pepperoni"
           type="checkbox"
           value={values.pepperoni}
           onChange={onChange}
         />
-        Sausage
+        Sausage:
         <input
           name="sausage"
           type="checkbox"
           value={values.sausage}
           onChange={onChange}
         />
-        Mushrooms
+        Mushrooms:
         <input
           name="mushrooms"
           type="checkbox"
           value={values.mushrooms}
           onChange={onChange}
         />
-        Pineapple
+        Pineapple:
         <input
           name="pineapple"
           type="checkbox"
